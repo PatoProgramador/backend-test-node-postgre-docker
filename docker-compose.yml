@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  node_backend:
+      container_name: node_crud
+      image: pruebatecnica
+      build:
+        context: .
+      ports:
+        - "1234:1234"
+      environment:
+        - EXTERNAL_PORT=1234
+        - PGDATABASE=pruebadb
+        - PGUSER=pato
+        - PGPASSWORD=12345
+        - PGHOST=database
+      depends_on:
+        - database
+  database:
+      container_name: database
+      image: "postgres:12"
+      ports:
+        - "5432:5432"
+      environment:
+        - POSTGRES_USER=pato
+        - POSTGRES_PASSWORD=12345
+        - POSTGRES_DB=pruebadb
+      volumes:
+        - nps_data:/var/lib/postgresql/data
+
+volumes:
+  nps_data: {}
