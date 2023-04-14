@@ -10,6 +10,6 @@ router.get('/', getDepartments);
 router.post('/', createDepartment);
 router.put('/:id', updateDepartment);
 router.delete('/:id', deleteDepartment);
-router.get('/:id/empleados', getEmployeeDepartment );
+router.get('/:id/empleados', getEmployeeDepartment);
 
 module.exports = router;

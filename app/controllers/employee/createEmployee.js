@@ -3,6 +3,7 @@ const Empleado = require('../../models/empleado');
 const createEmployee = async (req, res) => {
     const { nif, nombre, apellido1, apellido2, codigo_departamento } = req.body;
     try {
+        // validacion de campos necesarios
         let validate = {
             nif,
             nombre,
@@ -13,21 +14,17 @@ const createEmployee = async (req, res) => {
         for(const key in validate) {
             const element = validate[key];
             if(!element && key !== "apellido2") {
-                res.status(400).json({"message": `el campo ${key} no puede estar vacio`})
+               throw new Error(`el campo ${key} no puede estar vacio`)
             };
         };
+        // creación de la tabla
         const newEmployee = await Empleado.create({
-            nif,
-            nombre,
-            apellido1,
-            apellido2,
-            codigo_departamento
+            ...validate
         });
-    
-        return res.status(200).json(newEmployee)  
+        res.status(200).json(newEmployee);
     } catch (error) {
-        return res.status(500).json({"error": error.message});
-    }
+        res.status(500).json({"error": error.message});
+    };
 };
 
-module.exports = {createEmployee};
+module.exports = { createEmployee };

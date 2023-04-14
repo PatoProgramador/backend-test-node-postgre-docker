@@ -9,8 +9,8 @@ const router = express.Router();
 
 router.get('/', getEmployees);
 router.post('/', createEmployee);
-router.put('/empleado', updateEmployee);
-router.delete('/', deleteEmployee);
+router.put('/:id', updateEmployee);
+router.delete('/:id', deleteEmployee);
 router.get('/:id', getEmployee);
 
 

@@ -8,7 +8,7 @@ const updateEmployee = async (req, res) => {
             where: {codigo: id}
         });
         employee.set(req.body);
-        res.json(newEmployee)
+        res.status(200).json(employee);
     } catch (error) {
         res.status(500).json({"error": error.message});
     }
