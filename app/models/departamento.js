@@ -24,7 +24,7 @@ Departamento.hasMany(Empleado, {
     sourceKey: 'codigo'
 });
 
-Empleado.belongsTo(Departamento, {
+Empleado.belongsTo(Departamento,{
     foreignKey: 'codigo_departamento',
     sourceKey: 'codigo'
 })
