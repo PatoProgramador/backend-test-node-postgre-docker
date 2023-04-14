@@ -14,7 +14,7 @@ GET with filters = pasar por query filtros deseados, por ej. /empleados?nif=6666
 
 /empleados/id
 GET by ID = pasar por param el id deseado
-PUT = pasar los campos que desea actualizar
+PUT = pasar el codigo por param y pasar los campos que desea actualizar por body
 DELETE = Pasar el codigo del empleado que desea eliminar
 
 
