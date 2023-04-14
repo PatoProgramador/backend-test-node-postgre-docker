@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const PORT = process.env.EXTERNAL_PORT || 3001;
+const PORT = process.env.EXTERNAL_PORT || 1234;
 
 const app = express();
 
