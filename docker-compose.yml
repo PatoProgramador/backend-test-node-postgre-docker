@@ -15,12 +15,13 @@ services:
         - PGPASSWORD=12345
         - PGHOST=database
       depends_on:
-        - database
-  database:
-      container_name: database
-      image: "postgres:12"
+        - node_db
+  node_db:
+      container_name: nodedb
+      image: "postgres"
+      restart: always
       ports:
-        - "5432:5432"
+        - 5432:5432
       environment:
         - POSTGRES_USER=pato
         - POSTGRES_PASSWORD=12345

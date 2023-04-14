@@ -3,7 +3,7 @@ const db = require('../config/database');
 
 const Empleado = db.define('empleados', {
     codigo: {
-        type: DataTypes.INTEGER(10),
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
@@ -23,4 +23,6 @@ const Empleado = db.define('empleados', {
     apellido2: {
         type: DataTypes.STRING(100),
     }
-})
+});
+
+module.exports = Empleado;
